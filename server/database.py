@@ -10,14 +10,14 @@ def mongo_connect():
         return client['cartdash']
     except Exception as exp:
         print(f"Error connecting to mongodb: {exp}")
-        return None
+        return False
 
 database = mongo_connect()
 
 if database is not None:
     collections = database['groceries']
 
-    def get_groceries() -> list[dict]:
+    def get_groceries() -> list[dict] | bool:
         """
         this function retrieves all grocery items from the database.
         :return: a list of dictionaries of groceries
@@ -27,7 +27,7 @@ if database is not None:
             return list(collections.find({}, { '_id': False }))
         except Exception as exp:
             print(f"Retrieval Error: {exp}")
-            return None
+            return False
 
     def add_grocery(latter: str) -> bool:
         """
@@ -45,11 +45,12 @@ if database is not None:
 
             # insert into the database, and return True
             collections.insert_one({ 'item': latter, 'hasPurchased': False })
+            return True
         except Exception as exp:
             print(f"Addition Error: {exp}")
             return False
 
-    def update_grocery(former: str, latter: str) -> None:
+    def update_grocery(former: str, latter: str) -> bool:
         """
         this function updates a grocery item in the database.
 
@@ -61,11 +62,12 @@ if database is not None:
 
         try:
             collections.update_one({ 'item': former }, { '$set': { 'item': latter } })
+            return True
         except Exception as exp:
             print(f"Updating Error: {exp}")
-            return None
+            return False
 
-    def delete_grocery(former: str) -> None:
+    def delete_grocery(former: str) -> bool:
         """
         this function deletes a grocery item from the database.
 
@@ -75,6 +77,7 @@ if database is not None:
 
         try:
             collections.delete_one({ 'item': former })
+            return True
         except Exception as exp:
             print(f"Deletion Error: {exp}")
-            return None
+            return False
