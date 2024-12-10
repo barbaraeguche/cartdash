@@ -50,6 +50,9 @@
           <option value="E128" />
           <option value="E265" />
           <option value="E111" />
+          <option value="E202" />
+          <option value="E201" />
+          <option value="E203" />
         </list>
       </option>
     </inspection_tool>
