@@ -1,0 +1,6 @@
+# environment files
+venv
+.env
+
+# random
+.DS_Store
