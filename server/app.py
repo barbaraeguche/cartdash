@@ -10,31 +10,31 @@ def index():
     return 'Hello world!'
 
 @app.route('/grocery', methods=['GET'])
-def retrieve():
+async def retrieve():
     try:
-        return jsonify({ 'groceries': get_groceries() }), 200
+        return await jsonify({ 'groceries': get_groceries() }), 200
     except Exception as exp:
         return jsonify({ 'Error occurred in deletion: ': str(exp) }), 500
 
 @app.route('/grocery/add', methods=['POST'])
-def addition():
+async def addition():
     try:
-        add_grocery(request.get_json().get('latter')), 201
+        await add_grocery(request.get_json().get('latter')), 201
     except Exception as exp:
         return jsonify({ 'Error occurred in deletion: ': str(exp) }), 500
 
 @app.route('/grocery/update', methods=['PUT'])
-def updating():
+async def updating():
     try:
         data = request.get_json()
-        update_grocery(data.get('former'), data.get('latter')), 200
+        await update_grocery(data.get('former'), data.get('latter')), 200
     except Exception as exp:
         return jsonify({ 'Error occurred in deletion: ': str(exp) }), 500
 
 @app.route('/grocery/delete/<former>', methods=['DELETE'])
-def deletion(former: str):
+async def deletion(former: str):
     try:
-        delete_grocery(former), 200
+        await delete_grocery(former), 200
     except Exception as exp:
         return jsonify({ 'Error occurred in deletion: ': str(exp) }), 500
 
