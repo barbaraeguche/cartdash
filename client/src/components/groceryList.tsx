@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react';
-import { Pencil, Trash2 } from 'lucide-react';
 import clsx from 'clsx';
-import { fetchGrocery, deleteGrocery } from '../api/crud.ts';
+
+import { fetchGrocery } from '../api/crud.ts';
 import { Grocery } from '../util/types.ts';
+import { EditButton, DeleteButton } from './buttons.tsx';
+
+import EditItem from './editItem.tsx';
 
 export default function GroceryList() {
 	const [groceries, setGroceries] = useState<Grocery[]>([]);
+	const [isEditing, setIsEditing] = useState<string | null>(null);
 	
 	const toggleHasPurchased = (grocery: string, isChecked: boolean) => {
 		setGroceries(prev => prev.map(items =>
@@ -27,37 +31,35 @@ export default function GroceryList() {
 				{groceries && (
 					groceries.map(grocery => (
 						<div key={grocery.item}
-						     className="flex px-2 py-1.5 bg-beige items-center justify-between rounded-md border border-emerald-700"
+						     className={clsx(
+							     '',
+							     { 'flex bg-beige items-center justify-between rounded-md border border-emerald-700 px-2 py-1.5': isEditing !== grocery.item }
+						     )}
 						>
-							{/* checkbox + item */}
-							<div>
-								<input type="checkbox"
-								       onChange={(e) => toggleHasPurchased(grocery.item, e.target.checked)}
-								/>
-								<span className={clsx(
-									'ml-2 transition-colors',
-									{ 'line-through opacity-40': grocery.hasPurchased }
-								)}>
-									{grocery.item}
-								</span>
-							</div>
-							
-							{/* adjustment functionalities */}
-							<div className="space-x-1">
-								<button onClick={() => deleteGrocery(grocery.item)}
-								        className="rounded-md p-1.5 hover:bg-gray-200 hover:text-gray-600 transition-colors"
-								>
-									<span className="sr-only">Edit</span>
-									<Pencil className="h-4 w-4"/>
-								</button>
-								
-								<button onClick={() => deleteGrocery(grocery.item)}
-								        className="rounded-md p-1.5 hover:bg-red-200 hover:text-red-600 transition-colors"
-								>
-									<span className="sr-only">Delete</span>
-									<Trash2 className="h-4 w-4"/>
-								</button>
-							</div>
+							{isEditing === grocery.item ? (
+								<EditItem item={grocery.item} onClose={setIsEditing} />
+							) : (
+								<>
+									{/* checkbox + item */}
+									<div>
+										<input type="checkbox"
+										       onChange={(e) => toggleHasPurchased(grocery.item, e.target.checked)}
+										/>
+										<span className={clsx(
+											'ml-2 transition-colors',
+											{'line-through opacity-40': grocery.hasPurchased}
+										)}>
+											{grocery.item}
+										</span>
+									</div>
+									
+									{/* adjustment functionalities */}
+									<div className="space-x-1">
+										<EditButton item={grocery.item} onEdit={setIsEditing}/>
+										<DeleteButton item={grocery.item}/>
+									</div>
+								</>
+							)}
 						</div>
 					))
 				)}
