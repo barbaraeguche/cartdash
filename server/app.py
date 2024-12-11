@@ -6,37 +6,40 @@ app = Flask(__name__)
 CORS(app)
 
 @app.route('/')
-def index():
+async def index():
     return 'Hello world!'
 
 @app.route('/grocery', methods=['GET'])
-async def retrieve():
+def retrieve():
     try:
-        return await jsonify({ 'groceries': get_groceries() }), 200
+        return jsonify({ 'groceries': get_groceries() }), 200
     except Exception as exp:
-        return jsonify({ 'Error occurred in deletion: ': str(exp) }), 500
+        return jsonify({ 'Error occurred in retrieval': str(exp) }), 500
 
 @app.route('/grocery/add', methods=['POST'])
-async def addition():
+def addition():
     try:
-        await add_grocery(request.get_json().get('latter')), 201
+        response: str | bool = add_grocery(request.get_json().get('latter'))
+        return jsonify({ 'message': response if isinstance(response, str) else str(response) }), 201
     except Exception as exp:
-        return jsonify({ 'Error occurred in deletion: ': str(exp) }), 500
+        return jsonify({ 'Error occurred in insertion': str(exp) }), 500
 
 @app.route('/grocery/update', methods=['PUT'])
-async def updating():
+def updating():
     try:
         data = request.get_json()
-        await update_grocery(data.get('former'), data.get('latter')), 200
+        response: str | bool = update_grocery(data.get('former'), data.get('latter'))
+        return jsonify({ 'message': response if isinstance(response, str) else str(response) }), 200
     except Exception as exp:
-        return jsonify({ 'Error occurred in deletion: ': str(exp) }), 500
+        return jsonify({ 'Error occurred in updating': str(exp) }), 500
 
 @app.route('/grocery/delete/<former>', methods=['DELETE'])
-async def deletion(former: str):
+def deletion(former: str):
     try:
-        await delete_grocery(former), 200
+        response: str | bool = delete_grocery(former)
+        return jsonify({ 'message': response if isinstance(response, str) else str(response) }), 200
     except Exception as exp:
-        return jsonify({ 'Error occurred in deletion: ': str(exp) }), 500
+        return jsonify({ 'Error occurred in deletion': str(exp) }), 500
 
 
 # run the server
