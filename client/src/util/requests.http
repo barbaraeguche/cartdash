@@ -7,14 +7,14 @@ Content-Type: application/json
 POST http://localhost:5000/grocery/add
 Content-Type: application/json
 
-{ "latter":  "rice" }
+{ "item":  "cupcake" }
 ###
 
 ###
 PUT http://localhost:5000/grocery/update
 Content-Type: application/json
 
-{ "former": "peas", "latter": "bread" }
+{ "prev": "cupcake", "next": "just cake" }
 ###
 
 ###

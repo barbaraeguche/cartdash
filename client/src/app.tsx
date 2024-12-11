@@ -5,7 +5,7 @@ import Footer from './components/footer.tsx';
 
 export default function App() {
 	return (
-		<div className="m-0 p-4 box-border">
+		<div className="m-0 p-2 box-border">
 			<Header />
 			<InputBar />
 			<GroceryList />

@@ -19,9 +19,7 @@ const addGrocery = async (newItem: string, setNewItem: Dispatch<SetStateAction<s
 
 	try {
 		await axios.post(`${urlString}/add`, {
-			'latter': newItem
-			}, {
-			headers: { 'Content-Type': 'application/json' }
+			'item': newItem.trim()
 		});
 		setNewItem(''); // clear the input field after successful addition
 	} catch (err) {
@@ -32,7 +30,7 @@ const addGrocery = async (newItem: string, setNewItem: Dispatch<SetStateAction<s
 const updateGrocery = async (former: string, latter: string) => {
 	try {
 		await axios.put(`${urlString}/update`, {
-			'former': former, 'latter': latter
+			'prev': former.trim(), 'next': latter.trim()
 		}, {
 			headers: { 'Content-Type': 'application/json' }
 		});
@@ -43,7 +41,7 @@ const updateGrocery = async (former: string, latter: string) => {
 
 const deleteGrocery = async (former: string) => {
 	try {
-		await axios.delete(`${urlString}/delete/${former}`, {
+		await axios.delete(`${urlString}/delete/${former.trim()}`, {
 			headers: { 'Content-Type': 'application/json' }
 		});
 	} catch (err) {
