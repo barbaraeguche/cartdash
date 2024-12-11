@@ -29,22 +29,22 @@ if database is not None:
             print(f"Retrieval Error: {exp}")
             return False
 
-    def add_grocery(latter: str) -> str | bool:
+    def add_grocery(new_item: str) -> str | bool:
         """
         this function adds a new grocery item to the database.
 
-        :param latter: the item to add
+        :param new_item: the item to add
         :return: confirmation message, otherwise False if an error occurs
         """
 
         try:
-            duplicate = collections.find_one({ 'item': latter }, { '_id': False, 'hasPurchased': False })
+            duplicate = collections.find_one({ 'item': new_item }, { '_id': False, 'hasPurchased': False })
 
             # if the item already exists, do nothing
-            if duplicate: 'Item already exists in your list.'
+            if duplicate: return 'Item already exists in your list.'
 
             # insert into the database, and return True
-            collections.insert_one({ 'item': latter, 'hasPurchased': False })
+            collections.insert_one({ 'item': new_item, 'hasPurchased': False })
             return 'Item inserted into database.'
         except Exception as exp:
             print(f"Addition Error: {exp}")

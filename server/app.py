@@ -19,7 +19,7 @@ def retrieve():
 @app.route('/grocery/add', methods=['POST'])
 def addition():
     try:
-        response: str | bool = add_grocery(request.get_json().get('latter'))
+        response: str | bool = add_grocery(request.get_json().get('item'))
         return jsonify({ 'message': response if isinstance(response, str) else str(response) }), 201
     except Exception as exp:
         return jsonify({ 'Error occurred in insertion': str(exp) }), 500
@@ -28,7 +28,7 @@ def addition():
 def updating():
     try:
         data = request.get_json()
-        response: str | bool = update_grocery(data.get('former'), data.get('latter'))
+        response: str | bool = update_grocery(data.get('prev'), data.get('next'))
         return jsonify({ 'message': response if isinstance(response, str) else str(response) }), 200
     except Exception as exp:
         return jsonify({ 'Error occurred in updating': str(exp) }), 500

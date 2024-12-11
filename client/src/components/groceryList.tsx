@@ -4,11 +4,8 @@ import clsx from 'clsx';
 import { fetchGrocery, deleteGrocery } from '../api/crud.ts';
 import { Grocery } from '../util/types.ts';
 
-import ProgressIndicator from '../ui/progressIndicator.tsx';
-
 export default function GroceryList() {
 	const [groceries, setGroceries] = useState<Grocery[]>([]);
-	const hasBought = groceries.filter(item => item.hasPurchased).length;
 	
 	const toggleHasPurchased = (grocery: string, isChecked: boolean) => {
 		setGroceries(prev => prev.map(items =>
@@ -26,13 +23,11 @@ export default function GroceryList() {
 				<h3 className="text-center mt-16  mb-8 text-2xl tracking-[5%] italic">grocery list</h3>
 			)}
 			
-			<ProgressIndicator bought={hasBought} total={groceries.length} />
-			
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-2">
 				{groceries && (
-					groceries.map((grocery) => (
+					groceries.map(grocery => (
 						<div key={grocery.item}
-						     className="flex px-2 py-1.5 bg-beige items-center justify-between rounded-md border border-mint"
+						     className="flex px-2 py-1.5 bg-beige items-center justify-between rounded-md border border-emerald-700"
 						>
 							{/* checkbox + item */}
 							<div>

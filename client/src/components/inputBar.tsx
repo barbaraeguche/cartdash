@@ -22,7 +22,10 @@ export default function InputBar() {
 			</div>
 			
 			{/* add button */}
-			<Button onClick={() => addGrocery(newItem, setNewItem)}>
+			<Button onClick={() => addGrocery(newItem, setNewItem)}
+			        disabled={!newItem}
+			        className="disabled:bg-gray-200 transition-colors"
+			>
 				<span className="hidden sm:block">
 					Add Item
 				</span>
