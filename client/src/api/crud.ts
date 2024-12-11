@@ -16,14 +16,14 @@ const fetchGrocery = async (setGroceries: Dispatch<SetStateAction<Grocery[]>>) =
 
 const addGrocery = async (newItem: string, setNewItem: Dispatch<SetStateAction<string>>) => {
 	if (!newItem) return;  // if input is an empty string
-	// add grocery to database
+
 	try {
 		await axios.post(`${urlString}/add`, {
 			'latter': newItem
 			}, {
 			headers: { 'Content-Type': 'application/json' }
 		});
-		setNewItem('');
+		setNewItem(''); // clear the input field after successful addition
 	} catch (err) {
 		console.error(`Error adding item: ${err}`);
 	}
@@ -31,7 +31,7 @@ const addGrocery = async (newItem: string, setNewItem: Dispatch<SetStateAction<s
 
 const updateGrocery = async (former: string, latter: string) => {
 	try {
-		await axios.post(`${urlString}/add`, {
+		await axios.put(`${urlString}/update`, {
 			'former': former, 'latter': latter
 		}, {
 			headers: { 'Content-Type': 'application/json' }

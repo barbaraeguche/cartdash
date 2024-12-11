@@ -18,6 +18,6 @@ Content-Type: application/json
 ###
 
 ###
-DELETE http://localhost:5000/grocery/delete/apples
+DELETE http://localhost:5000/grocery/delete/rice
 Content-Type: application/json
 ###
