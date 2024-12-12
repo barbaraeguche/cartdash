@@ -8,7 +8,7 @@ export default function Input({ className, ...rest }: InputProps) {
 		<input
 			{...rest}
 			className={clsx(
-				'w-full rounded-md border border-gray-200 p-2 placeholder:text-gray-500 placeholder:text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-mint',
+				'w-full text-[15px] rounded-lg p-2 border border-gray-200 placeholder:text-gray-500 focus:placeholder:text-gray-400 placeholder:text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-mint transition-colors',
         className
 			)}
 		/>

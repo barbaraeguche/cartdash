@@ -3,6 +3,10 @@
 
 ## features 👾
 - **title:** description
+- edit
+- create
+- delete
+- pymongo db
 
 ## limitations 🚨
 - **title:** description
@@ -11,6 +15,7 @@
 first time using flask and pymongo, learned to use http request file, also using vite
 learned that axios delete does not have data param, so we have to pass the item in the query string inside a `<>`
 you need to return a jsonify for all pi calls else your crud won't work
+edit in-line items
 
 ## .env file 📄
 ```
