@@ -7,9 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        'dark-mint': '#72A865E5',
-        'mint': '#72A865B2',
-        'light-mint': '#b5dda4',
+        'mint': {
+          '100': '#72A865E5',
+          DEFAULT: '#72A865B2',
+          '90': '#b5dda4',
+        },
         'beige': '#F2F3D9',
       },
     },
