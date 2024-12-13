@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import { fetchGrocery } from '../api/crud.ts';
 import { Grocery } from '../util/types.ts';
@@ -21,17 +22,24 @@ export default function GroceryList() {
 			)}
 			
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-y-1 gap-x-2 mb-14 sm:mb-20">
-				{groceries && (
-					groceries.map(grocery => (
-						<div key={grocery.item}>
-							{isEditing === grocery.item ? (
-								<EditGrocery item={grocery.item} onSave={setIsEditing} />
-							) : (
-								<GroceryCard grocery={grocery} setIsEditing={setIsEditing} />
-							)}
-						</div>
-					))
-				)}
+				<AnimatePresence>
+					{groceries && (
+						groceries.map(grocery => (
+							<motion.div key={grocery.item}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, scale: 0.6 }}
+                          transition={{ duration: 0.3 }}
+							>
+								{isEditing === grocery.item ? (
+									<EditGrocery item={grocery.item} onSave={setIsEditing} />
+								) : (
+									<GroceryCard grocery={grocery} setIsEditing={setIsEditing} />
+								)}
+							</motion.div>
+						))
+					)}
+				</AnimatePresence>
 			</div>
 		</section>
 	);

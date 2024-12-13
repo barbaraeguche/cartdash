@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { Plus } from 'lucide-react';
 
-import { errorMsg, errorConfig } from '../util/constants.ts';
+import { duplicateMsg, toastConfig } from '../util/constants.ts';
 import { addGrocery } from '../api/crud.ts';
 
 import Input from '../ui/input.tsx';
@@ -30,8 +30,8 @@ export default function InputBar() {
 			        onClick={async () => {
 				        const message = await addGrocery(newItem, setNewItem);
 								
-								if (message === errorMsg) {
-									toast('Error: Duplicate item.', errorConfig);
+								if (message === duplicateMsg) {
+									toast('Error: Duplicate item.', toastConfig);
 									setNewItem(newItem); // keep existing item
 									return;
 								}

@@ -18,6 +18,9 @@ export default {
         },
         'beige': '#F2F3D9',
       },
+      screens: {
+        'small': '380px'
+      }
     },
   },
   plugins: [],
