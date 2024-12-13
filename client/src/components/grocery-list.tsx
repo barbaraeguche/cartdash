@@ -12,15 +12,15 @@ export default function GroceryList() {
 	
 	useEffect(() => {
 		fetchGrocery(setGroceries);
-	}, []);
+	}, [groceries]);
 	
 	return (
 		<section className="mx-auto max-w-[450px] md:max-w-[900px]">
 			{groceries.length > 0 && (
-				<h3 className="font-luckiest-guy text-center mt-10 sm:mt-16 mb-4 text-2xl tracking-[5%] italic text-mint-100">~~~ grocery list ~~~</h3>
+				<h3 className="font-luckiest-guy mt-10 sm:mt-16 mb-4 text-center text-[25px] tracking-[7%] text-mint-100">~~~ GROCERY LIST ~~~</h3>
 			)}
 			
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+			<div className="grid grid-cols-1 md:grid-cols-2 gap-y-1 gap-x-2 mb-14 sm:mb-20">
 				{groceries && (
 					groceries.map(grocery => (
 						<div key={grocery.item}>

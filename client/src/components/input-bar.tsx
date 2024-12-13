@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { Plus } from 'lucide-react';
 
+import { errorMsg, errorConfig } from '../util/constants.ts';
 import { addGrocery } from '../api/crud.ts';
+
 import Input from '../ui/input.tsx';
 import Button from '../ui/button.tsx';
 
@@ -24,12 +26,12 @@ export default function InputBar() {
 			
 			{/* add button */}
 			<Button disabled={!newItem}
-			        className="disabled:bg-gray-100 disabled:cursor-not-allowed"
+			        className="disabled:bg-gray-100 disabled:cursor-default"
 			        onClick={async () => {
 				        const message = await addGrocery(newItem, setNewItem);
 								
-								if (message === 'Item already exists in your list.') {
-									toast(message);
+								if (message === errorMsg) {
+									toast('Error: Duplicate item.', errorConfig);
 									setNewItem(newItem); // keep existing item
 									return;
 								}
