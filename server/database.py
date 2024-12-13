@@ -38,13 +38,13 @@ if database is not None:
         """
 
         try:
-            duplicate = collections.find_one({ 'item': new_item }, { '_id': False, 'hasPurchased': False })
+            duplicate = collections.find_one({ 'item': new_item }, { '_id': False })
 
             # if the item already exists, do nothing
             if duplicate: return 'Item already exists in your list.'
 
             # insert into the database, and return True
-            collections.insert_one({ 'item': new_item, 'hasPurchased': False })
+            collections.insert_one({ 'item': new_item })
             return 'Item inserted into database.'
         except Exception as exp:
             print(f"Addition Error: {exp}")

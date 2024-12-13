@@ -7,7 +7,7 @@ const EditButton = ({ item, onEdit }: {
 }) => {
 	return (
 		<button onClick={() => onEdit(item)}
-		        className="rounded-md p-2 text-gray-700 hover:bg-gray-100 transition-colors"
+		        className="rounded-md p-2 text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer"
 		>
 			<span className="sr-only">Edit</span>
 			<Pencil className="h-4 w-4"/>
@@ -20,7 +20,7 @@ const DeleteButton = ({ item }: {
 }) => {
 	return (
 		<button onClick={() => deleteGrocery(item)}
-		        className="rounded-md p-2 text-red-700 hover:bg-red-100 transition-colors"
+		        className="rounded-md p-2 text-red-700 hover:bg-red-100 transition-colors cursor-pointer"
 		>
 			<span className="sr-only">Delete</span>
 			<Trash2 className="h-4 w-4"/>
