@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
 
@@ -11,10 +11,6 @@ export default function GroceryCard({ grocery, setIsEditing }: {
 }) {
 	const [isPurchased, setIsPurchased] = useState<boolean>(false);
 	
-	const toggleHasPurchased = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setIsPurchased(e.target.checked);
-	};
-	
 	return (
 		<motion.div initial={{ opacity: 0, scale: 0.7 }}
 		            animate={{ opacity: 1, scale: 1 }}
@@ -26,7 +22,7 @@ export default function GroceryCard({ grocery, setIsEditing }: {
 			<div>
 				<input type="checkbox"
 				       checked={isPurchased}
-				       onChange={toggleHasPurchased}
+				       onChange={(e) => setIsPurchased(e.target.checked)}
 				       className="accent-beige"
 				/>
 				<span className={clsx(
