@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 
-import { fetchGrocery } from '../api/crud.ts';
+import { fetchGrocery } from '../api/handlers.ts';
 import { Grocery } from '../util/types.ts';
 
 import EditGrocery from './edit-grocery.tsx';

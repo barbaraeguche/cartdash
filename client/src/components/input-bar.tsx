@@ -3,7 +3,7 @@ import { toast } from 'react-hot-toast';
 import { Plus } from 'lucide-react';
 
 import { duplicateMsg, toastConfig } from '../util/constants.ts';
-import { addGrocery } from '../api/crud.ts';
+import { addGrocery } from '../api/handlers.ts';
 
 import Input from '../ui/input.tsx';
 import Button from '../ui/button.tsx';
