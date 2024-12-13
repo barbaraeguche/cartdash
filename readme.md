@@ -3,13 +3,16 @@
 
 ## features 👾
 - **title:** description
-- edit
-- create
-- delete
+- add grocery
+- edit grocery
+- delete grocery
 - pymongo db
+- clean + responsive ui
+- toast notifications
 
 ## limitations 🚨
 - **title:** description
+- after editing, the ui tweaks places then moves to its original spot
 
 ## what I learned 💭
 first time using flask and pymongo, learned to use http request file, also using vite
