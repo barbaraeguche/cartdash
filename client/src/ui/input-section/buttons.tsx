@@ -1,5 +1,3 @@
-import clsx from 'clsx';
-
 import { Pencil, Trash2 } from 'lucide-react';
 import { deleteGrocery } from '../../api/handlers.ts';
 
@@ -11,10 +9,7 @@ const EditButton = ({ item, onEdit, isPurchased }: {
 	return (
 		<button disabled={isPurchased}
 		        onClick={() => onEdit(item)}
-		        className={clsx(
-							'rounded-md p-2 text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer',
-			        { 'text-gray-300 hover:bg-transparent cursor-default': isPurchased }
-		        )}
+		        className="rounded-md p-2 text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer disabled:text-gray-300 disabled:hover:bg-transparent disabled:cursor-default"
 		>
 			<span className="sr-only">Edit</span>
 			<Pencil className="h-4 w-4"/>
@@ -29,10 +24,7 @@ const DeleteButton = ({ item, isPurchased }: {
 	return (
 		<button disabled={isPurchased}
 		        onClick={() => deleteGrocery(item)}
-		        className={clsx(
-							'rounded-md p-2 text-red-700 hover:bg-red-100 transition-colors cursor-pointer',
-			        { 'text-gray-300 hover:bg-transparent cursor-default': isPurchased }
-		        )}
+		        className="rounded-md p-2 text-red-700 hover:bg-red-100 transition-colors cursor-pointer disabled:text-gray-300 disabled:hover:bg-transparent disabled:cursor-default"
 		>
 			<span className="sr-only">Delete</span>
 			<Trash2 className="h-4 w-4"/>

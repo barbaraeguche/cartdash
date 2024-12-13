@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import clsx from 'clsx';
 
 import { toast } from 'react-hot-toast';
 import { Save, Ban } from 'lucide-react';
@@ -30,10 +29,7 @@ export default function EditGrocery({ item, onSave }: {
 			<div className="flex small:w-[17%]">
 				{/* save button */}
 				<button disabled={!value}
-				        className={clsx(
-					        'rounded-md p-2 text-green-700 hover:bg-green-100 transition-colors cursor-pointer',
-					        {'text-gray-300 hover:bg-transparent cursor-default': !value}
-				        )}
+				        className="rounded-md p-2 text-green-700 hover:bg-green-100 transition-colors cursor-pointer disabled:text-gray-300 disabled:hover:bg-transparent disabled:cursor-default"
 				        onClick={async () => {
 					        const message = await updateGrocery(item, value);
 					        
