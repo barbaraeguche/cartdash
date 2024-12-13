@@ -26,10 +26,11 @@ const addGrocery = async (
 
 	try {
 		// add the item to the database
-		await axios.post(`${urlString}/add`, {
+		const { data } = await axios.post(`${urlString}/add`, {
 			'item': newItem.trim()
 		});
 		setNewItem(''); // clear the input field after successful addition
+		return data.message;
 	} catch (err) {
 		console.error(`Error adding item: ${err}`);
 	}
@@ -43,11 +44,12 @@ const updateGrocery = async (
 	
 	try {
 		// update the item in the database
-		await axios.put(`${urlString}/update`, {
+		const { data } = await axios.put(`${urlString}/update`, {
 			'prev': former.trim(), 'next': latter.trim()
 		}, {
 			headers: { 'Content-Type': 'application/json' }
 		});
+		return data.message;
 	} catch (err) {
 		console.error(`Error updating items: ${err}`);
 	}

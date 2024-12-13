@@ -24,7 +24,7 @@ export default function GroceryCard({ grocery, setIsEditing }: {
 				       className="accent-beige"
 				/>
 				<span className={clsx(
-					'ml-2 transition-colors text-[15px]',
+					'ml-2 transition-colors',
 					{ 'line-through opacity-40': isPurchased }
 				)}
 				>
@@ -34,8 +34,8 @@ export default function GroceryCard({ grocery, setIsEditing }: {
 			
 			{/* functionalities */}
 			<div>
-				<EditButton item={grocery.item} onEdit={setIsEditing} />
-				<DeleteButton item={grocery.item} />
+				<EditButton item={grocery.item} onEdit={setIsEditing} isPurchased={isPurchased} />
+				<DeleteButton item={grocery.item} isPurchased={isPurchased} />
 			</div>
 		</div>
 	);
