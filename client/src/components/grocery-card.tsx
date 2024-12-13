@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import clsx from 'clsx';
 
 import { Grocery } from '../util/types.ts';
@@ -15,7 +16,12 @@ export default function GroceryCard({ grocery, setIsEditing }: {
 	};
 	
 	return (
-		<div className="flex items-center justify-between rounded-md border-t border-b px-2 py-1">
+		<motion.div initial={{ opacity: 0, scale: 0.7 }}
+		            animate={{ opacity: 1, scale: 1 }}
+		            exit={{ opacity: 0, scale: 0.7 }}
+		            transition={{ duration: 0.3 }}
+		            className="flex items-center justify-between rounded-md border-t border-b px-2 py-1"
+		>
 			{/* checkbox + item */}
 			<div>
 				<input type="checkbox"
@@ -37,6 +43,6 @@ export default function GroceryCard({ grocery, setIsEditing }: {
 				<EditButton item={grocery.item} onEdit={setIsEditing} isPurchased={isPurchased} />
 				<DeleteButton item={grocery.item} isPurchased={isPurchased} />
 			</div>
-		</div>
+		</motion.div>
 	);
 }

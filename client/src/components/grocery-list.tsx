@@ -25,18 +25,13 @@ export default function GroceryList() {
 				<AnimatePresence>
 					{groceries && (
 						groceries.map(grocery => (
-							<motion.div key={grocery.item}
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, scale: 0.6 }}
-                          transition={{ duration: 0.3 }}
-							>
+							<div key={grocery.item}>
 								{isEditing === grocery.item ? (
 									<EditGrocery item={grocery.item} onSave={setIsEditing} />
 								) : (
 									<GroceryCard grocery={grocery} setIsEditing={setIsEditing} />
 								)}
-							</motion.div>
+							</div>
 						))
 					)}
 				</AnimatePresence>
