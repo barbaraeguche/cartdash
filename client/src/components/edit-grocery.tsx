@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { toast } from 'react-hot-toast';
 import { Save, Ban } from 'lucide-react';
 
+import { errorMsg, errorConfig } from '../util/constants.ts';
 import { updateGrocery } from '../api/crud.ts';
 import Input from '../ui/input.tsx';
 
@@ -19,9 +20,6 @@ export default function EditGrocery({ item, onSave }: {
 			       className="rounded-md w-[83.75%] border-0 border-r border-gray-200 focus-visible:outline-0 focus-visible:outline-transparent"
 			/>
 			
-			{/*disabled={!newItem}*/}
-			{/*className="disabled:bg-gray-100 disabled:cursor-not-allowed"*/}
-			
 			<div className="mx-auto">
 				{/* save button */}
 				<button disabled={!value}
@@ -31,9 +29,9 @@ export default function EditGrocery({ item, onSave }: {
 				        )}
 				        onClick={async () => {
 					        const message = await updateGrocery(item, value);
-					        
-					        if (message === 'Item already exists in your list.') {
-						        toast(message);
+									
+					        if (message === errorMsg) {
+						        toast('Error: Item unchanged.', errorConfig);
 						        return;
 					        } else onSave(null);
 				        }}

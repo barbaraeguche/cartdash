@@ -5,10 +5,12 @@ import Footer from './components/footer.tsx';
 
 export default function App() {
 	return (
-		<div className="m-0 p-2 box-border font-newsreader">
+		<div className="h-screen m-0 p-2 box-border font-newsreader flex flex-col">
 			<Header />
-			<InputBar />
-			<GroceryList />
+			<main className="flex-1">
+				<InputBar />
+				<GroceryList />
+			</main>
 			<Footer />
 		</div>
 	);
