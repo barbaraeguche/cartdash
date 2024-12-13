@@ -10,21 +10,9 @@ export default function GroceryList() {
 	const [groceries, setGroceries] = useState<Grocery[]>([]);
 	const [isEditing, setIsEditing] = useState<string | null>(null);
 	
-	const toggleHasPurchased = (grocery: string, isChecked: boolean) => {
-		setGroceries((prev) =>
-			prev.map((items) =>
-				items.item === grocery
-					? ({...items, hasPurchased: isChecked }) // update the hasPurchased property
-					: items // leave other items unchanged
-		));
-	};
-	
 	useEffect(() => {
-		fetchGrocery(setGroceries).then();
-	}, []);
-	// useEffect(() => {
-	// 	fetchGrocery(setGroceries).then();
-	// }, [groceries]);
+		fetchGrocery(setGroceries);
+	}, [groceries]);
 	
 	return (
 		<section className="mx-auto max-w-[450px] md:max-w-[900px]">
@@ -40,7 +28,7 @@ export default function GroceryList() {
 								isEditing === grocery.item ? (
 									<EditGrocery item={grocery.item} onSave={setIsEditing} />
 								) : (
-									<GroceryCard grocery={grocery} toggleHasPurchased={toggleHasPurchased} setIsEditing={setIsEditing} />
+									<GroceryCard grocery={grocery} setIsEditing={setIsEditing} />
 								)
 							}
 						</div>
