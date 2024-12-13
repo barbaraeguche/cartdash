@@ -24,13 +24,11 @@ export default function GroceryList() {
 				{groceries && (
 					groceries.map(grocery => (
 						<div key={grocery.item}>
-							{
-								isEditing === grocery.item ? (
-									<EditGrocery item={grocery.item} onSave={setIsEditing} />
-								) : (
-									<GroceryCard grocery={grocery} setIsEditing={setIsEditing} />
-								)
-							}
+							{isEditing === grocery.item ? (
+								<EditGrocery item={grocery.item} onSave={setIsEditing} />
+							) : (
+								<GroceryCard grocery={grocery} setIsEditing={setIsEditing} />
+							)}
 						</div>
 					))
 				)}

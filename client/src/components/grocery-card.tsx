@@ -25,9 +25,7 @@ export default function GroceryCard({ grocery, setIsEditing }: {
 				/>
 				<span className={clsx(
 					'ml-2 transition-colors text-[15px]',
-					{
-						'line-through opacity-40': isPurchased
-					}
+					{ 'line-through opacity-40': isPurchased }
 				)}
 				>
 					{grocery.item}
