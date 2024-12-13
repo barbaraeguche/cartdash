@@ -1,0 +1,14 @@
+{
+	"rewrites": [{
+		"source": "/(.*)",
+		"destination": "/app.py"
+	}]
+}
+
+
+//{
+//	"rewrites": [
+//		{ "source": "/api/(.*)", "destination": "/api/index.py" },
+//		{ "source": "/(.*)", "destination": "/client/dist/index.html" }
+//	]
+//}
