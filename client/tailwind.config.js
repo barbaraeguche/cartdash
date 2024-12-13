@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'luckiest-guy': ['Luckiest Guy', 'cursive'],
+        'newsreader': ['Newsreader', 'serif']
+      },
       colors: {
         'mint': {
           '100': '#72A865E5',

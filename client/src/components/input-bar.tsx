@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { Plus } from 'lucide-react';
 
 import { addGrocery } from '../api/crud.ts';
@@ -9,7 +10,7 @@ export default function InputBar() {
 	const [newItem, setNewItem] = useState<string>('');
 	
 	return (
-		<section className="mt-10 flex gap-1.5 mx-auto max-w-[450px] md:max-w-[600px]">
+		<section className="mt-14 sm:mt-20 flex gap-1.5 mx-auto max-w-[450px] md:max-w-[600px]">
 			{/* input field */}
 			<div className="flex flex-1 flex-shrink-0">
 				<label htmlFor="grocery-input" className="sr-only">
@@ -22,9 +23,17 @@ export default function InputBar() {
 			</div>
 			
 			{/* add button */}
-			<Button onClick={() => addGrocery(newItem, setNewItem)}
-			        disabled={!newItem}
-			        className="disabled:bg-gray-100"
+			<Button disabled={!newItem}
+			        className="disabled:bg-gray-100 disabled:cursor-not-allowed"
+			        onClick={async () => {
+				        const message = await addGrocery(newItem, setNewItem);
+								
+								if (message === 'Item already exists in your list.') {
+									toast(message);
+									setNewItem(newItem); // keep existing item
+									return;
+								}
+			        }}
 			>
 				<span className="hidden sm:block">
 					Add Item

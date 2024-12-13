@@ -43,7 +43,7 @@ if database is not None:
             # if the item already exists, do nothing
             if duplicate: return 'Item already exists in your list.'
 
-            # insert into the database, and return True
+            # insert into the database
             collections.insert_one({ 'item': new_item })
             return 'Item inserted into database.'
         except Exception as exp:
@@ -61,6 +61,12 @@ if database is not None:
         """
 
         try:
+            duplicate = collections.find_one({ 'item': latter }, { '_id': False })
+
+            # if the item already exists, do nothing
+            if duplicate: return 'Item already exists in your list.'
+
+            # update item in the database
             collections.update_one({ 'item': former }, { '$set': { 'item': latter } })
             return 'Item updated in database.'
         except Exception as exp:
