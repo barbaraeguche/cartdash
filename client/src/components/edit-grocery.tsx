@@ -6,7 +6,7 @@ import { toast } from 'react-hot-toast';
 import { Save, Ban } from 'lucide-react';
 
 import { duplicateMsg, toastConfig } from '../util/constants.ts';
-import { updateGrocery } from '../api/crud.ts';
+import { updateGrocery } from '../api/handlers.ts';
 import Input from '../ui/input.tsx';
 
 export default function EditGrocery({ item, onSave }: {

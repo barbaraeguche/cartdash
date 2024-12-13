@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
 import { Pencil, Trash2 } from 'lucide-react';
-import { deleteGrocery } from '../../api/crud.ts';
+import { deleteGrocery } from '../../api/handlers.ts';
 
 const EditButton = ({ item, onEdit, isPurchased }: {
 	item: string,
