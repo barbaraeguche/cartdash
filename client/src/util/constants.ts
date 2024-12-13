@@ -1,7 +1,7 @@
 const urlString = 'http://127.0.0.1:5000/grocery';
 
-const errorMsg = 'Item already exists in your list.'
-const errorConfig = {
+const duplicateMsg = 'Item already exists in your list.'
+const toastConfig = {
 	icon: '🚫',
 	style: {
 		background: '#F2F3D9',
@@ -10,4 +10,4 @@ const errorConfig = {
 	}
 }
 
-export { urlString, errorMsg, errorConfig };
+export { urlString, duplicateMsg, toastConfig };
