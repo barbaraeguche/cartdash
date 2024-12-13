@@ -19,7 +19,7 @@ export default function GroceryCard({ grocery, setIsEditing }: {
 		<motion.div initial={{ opacity: 0, scale: 0.7 }}
 		            animate={{ opacity: 1, scale: 1 }}
 		            exit={{ opacity: 0, scale: 0.7 }}
-		            transition={{ duration: 0.3 }}
+		            transition={{ duration: 0.4 }}
 		            className="flex items-center justify-between rounded-md border-t border-b px-2 py-1"
 		>
 			{/* checkbox + item */}

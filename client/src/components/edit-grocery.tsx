@@ -19,7 +19,7 @@ export default function EditGrocery({ item, onSave }: {
 		<motion.div initial={{ opacity: 0, scale: 0.7 }}
 		            animate={{ opacity: 1, scale: 1 }}
 		            exit={{ opacity: 0, scale: 0.7 }}
-		            transition={{ duration: 0.3 }}
+		            transition={{ duration: 0.4 }}
 		            className="flex items-center space-x-1.5 px-2 rounded-md border-t border-b"
 		>
 			<Input value={value}
