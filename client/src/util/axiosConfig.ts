@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
+// use environment variable for flexibility
+const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://127.0.0.1:5000/grocery';
 
 export const apiClient = axios.create({
 	baseURL: `${backendUrl}/grocery`,
