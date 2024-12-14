@@ -3,6 +3,7 @@ import { AnimatePresence } from 'framer-motion';
 
 import { fetchGrocery } from '../api/handlers.ts';
 import { Grocery } from '../util/types.ts';
+import Spinner from '../ui/grocery-list/spinner.tsx';
 
 import EditGrocery from './edit-grocery.tsx';
 import GroceryCard from './grocery-card.tsx';
@@ -34,6 +35,8 @@ export default function GroceryList() {
 					))}
 				</AnimatePresence>
 			</div>
+			
+			<Spinner />
 		</section>
 	);
 }
