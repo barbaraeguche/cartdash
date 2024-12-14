@@ -3,40 +3,53 @@ import { AnimatePresence } from 'framer-motion';
 
 import { fetchGrocery } from '../api/handlers.ts';
 import { Grocery } from '../util/types.ts';
-// import Spinner from '../ui/grocery-list/spinner.tsx';
 
 import EditGrocery from './edit-grocery.tsx';
 import GroceryCard from './grocery-card.tsx';
 
 export default function GroceryList() {
 	const [groceries, setGroceries] = useState<Grocery[]>([]);
+	const [isLoading, setIsLoading] = useState<boolean>(true);
 	const [isEditing, setIsEditing] = useState<string | null>(null);
 	
+	useEffect(() => {
+		setIsLoading(true); // start loading
+		fetchGrocery(setGroceries);
+		setIsLoading(false); // stop loading once fetched
+	}, []);
 	useEffect(() => {
 		fetchGrocery(setGroceries);
 	}, [groceries]);
 	
 	return (
-		<section className="mx-auto max-w-[450px] md:max-w-[900px]">
-			{groceries.length > 0 && (
-				<h3 className="font-luckiest-guy mt-10 sm:mt-16 mb-4 text-center text-[25px] tracking-[7%] text-mint-100">~~~ GROCERY LIST ~~~</h3>
-			)}
-			
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-y-1 gap-x-3 mb-14 sm:mb-20">
-				<AnimatePresence>
-					{groceries.map((grocery) => (
-						<div key={grocery.item}>
-							{isEditing === grocery.item ? (
-								<EditGrocery item={grocery.item} onSave={setIsEditing} />
-							) : (
-								<GroceryCard grocery={grocery} setIsEditing={setIsEditing} />
-							)}
+		<section className="mt-10 sm:mt-16 text-center mx-auto max-w-[450px] md:max-w-[900px]">
+			{/* show loader while fetching */}
+			{isLoading ? (
+				<p className="text-[17px] tracking-[3px] animate-pulse">loading items...</p>
+			) : (
+				groceries.length === 0? (
+					<span>There are currently no items in your list.</span>
+				) : (
+					<>
+						{/* show content once fetched */}
+						<h3 className="font-luckiest-guy text-2xl tracking-[7%] text-mint-100">~~~ GROCERY LIST ~~~</h3>
+						
+						<div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-y-1 gap-x-3 mb-14 sm:mb-20">
+							<AnimatePresence>
+								{groceries.map((grocery) => (
+									<div key={grocery.item}>
+										{isEditing === grocery.item ? (
+											<EditGrocery item={grocery.item} onSave={setIsEditing}/>
+										) : (
+											<GroceryCard grocery={grocery} setIsEditing={setIsEditing}/>
+										)}
+									</div>
+								))}
+							</AnimatePresence>
 						</div>
-					))}
-				</AnimatePresence>
-			</div>
-			
-			{/*<Spinner />*/}
+					</>
+				)
+			)}
 		</section>
 	);
 }

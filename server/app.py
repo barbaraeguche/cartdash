@@ -8,7 +8,7 @@ import os
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": [os.getenv('FRONTEND_URL'), 'http://localhost:5173/']}}, headers=["Content-Type", "Authorization", "Origin"])
+CORS(app, resources={r"/*": {"origins": [os.getenv('FRONTEND_URL'), 'http://localhost:5173']}}, headers=["Content-Type", "Authorization", "Origin"])
 
 @app.route('/')
 def index():
