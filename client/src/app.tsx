@@ -5,7 +5,7 @@ import Footer from './components/footer.tsx';
 
 export default function App() {
 	return (
-		<div className="h-screen m-0 p-2 box-border font-newsreader flex flex-col">
+		<div className="h-screen m-0 p-2.5 box-border font-newsreader flex flex-col">
 			<Header />
 			<main className="flex-1">
 				<InputBar />

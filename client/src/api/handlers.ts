@@ -12,7 +12,7 @@ const fetchGrocery = async (
 	} catch (err) {
 		console.error(`Error fetching items: ${err}`);
 	}
-}
+};
 
 const addGrocery = async (
 	newItem: string,
@@ -29,7 +29,7 @@ const addGrocery = async (
 	} catch (err) {
 		console.error(`Error adding item: ${err}`);
 	}
-}
+};
 
 const updateGrocery = async (
 	former: string,
@@ -46,7 +46,7 @@ const updateGrocery = async (
 	} catch (err) {
 		console.error(`Error updating items: ${err}`);
 	}
-}
+};
 
 const deleteGrocery = async (
 	former: string
@@ -56,6 +56,6 @@ const deleteGrocery = async (
 	} catch (err) {
 		console.error(`Error deleting items: ${err}`);
 	}
-}
+};
 
 export { fetchGrocery, addGrocery, updateGrocery, deleteGrocery };
