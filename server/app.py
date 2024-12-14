@@ -3,7 +3,7 @@ from flask_cors import CORS
 from database import *
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, supports_credentials=True)
 
 @app.route('/')
 async def index():
