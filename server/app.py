@@ -1,9 +1,14 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from dotenv import load_dotenv
 from database import *
+import os
+
+# load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}}, headers=["Content-Type", "Authorization", "Origin"])
+CORS(app, resources={r"/*": {"origins": [os.getenv('FRONTEND_URL'), 'http://localhost:5173/']}}, headers=["Content-Type", "Authorization", "Origin"])
 
 @app.route('/')
 def index():
