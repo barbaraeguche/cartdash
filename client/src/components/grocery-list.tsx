@@ -13,9 +13,14 @@ export default function GroceryList() {
 	const [isEditing, setIsEditing] = useState<string | null>(null);
 	
 	useEffect(() => {
-		setIsLoading(true); // start loading
-		fetchGrocery(setGroceries);
-		setIsLoading(false); // stop loading once fetched
+		const loadGroceries = async () => {
+			setIsLoading(true); // start loading
+			try {
+				await fetchGrocery(setGroceries);
+			} finally { setIsLoading(false); } // stop loading once fetched
+		};
+		
+		loadGroceries();
 	}, []);
 	useEffect(() => {
 		fetchGrocery(setGroceries);
