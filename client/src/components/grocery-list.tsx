@@ -21,19 +21,17 @@ export default function GroceryList() {
 				<h3 className="font-luckiest-guy mt-10 sm:mt-16 mb-4 text-center text-[25px] tracking-[7%] text-mint-100">~~~ GROCERY LIST ~~~</h3>
 			)}
 			
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-y-1 gap-x-2 mb-14 sm:mb-20">
+			<div className="grid grid-cols-1 md:grid-cols-2 gap-y-1 gap-x-3 mb-14 sm:mb-20">
 				<AnimatePresence>
-					{groceries && (
-						groceries.map(grocery => (
-							<div key={grocery.item}>
-								{isEditing === grocery.item ? (
-									<EditGrocery item={grocery.item} onSave={setIsEditing} />
-								) : (
-									<GroceryCard grocery={grocery} setIsEditing={setIsEditing} />
-								)}
-							</div>
-						))
-					)}
+					{groceries.map((grocery) => (
+						<div key={grocery.item}>
+							{isEditing === grocery.item ? (
+								<EditGrocery item={grocery.item} onSave={setIsEditing} />
+							) : (
+								<GroceryCard grocery={grocery} setIsEditing={setIsEditing} />
+							)}
+						</div>
+					))}
 				</AnimatePresence>
 			</div>
 		</section>
