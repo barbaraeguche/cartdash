@@ -1,6 +1,8 @@
 import axios from 'axios';
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 export const apiClient = axios.create({
-	baseURL: 'http://127.0.0.1:5000/grocery',
+	baseURL: `${backendUrl}/grocery`,
 	headers: { 'Content-Type': 'application/json' }
 });
