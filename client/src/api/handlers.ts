@@ -22,7 +22,7 @@ const addGrocery = async (
 
 	try {
 		const { data } = await apiClient.post('/add', {
-			'item': newItem.trim()
+			'item': newItem.trim().toLowerCase()
 		});
 		setNewItem(''); // clear the input field after successful addition
 		return data.message;
@@ -39,8 +39,8 @@ const updateGrocery = async (
 	
 	try {
 		const { data } = await apiClient.put('/update', {
-			'prev': former.trim(),
-			'next': latter.trim()
+			'prev': former.trim().toLowerCase(),
+			'next': latter.trim().toLowerCase()
 		});
 		return data.message;
 	} catch (err) {
