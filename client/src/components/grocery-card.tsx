@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import clsx from 'clsx';
 
 import { Grocery } from '../util/types.ts';
-import { EditButton, DeleteButton } from '../ui/input-section/buttons.tsx';
+import { EditButton, DeleteButton } from '../ui/grocery-list/buttons.tsx';
 
 export default function GroceryCard({ grocery, setIsEditing }: {
 	grocery: Grocery,

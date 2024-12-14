@@ -1,6 +1,6 @@
 import { Loader } from 'lucide-react';
 
-export default function Loader() {
+export default function Spinner() {
 	return (
 		<div>
 			<Loader className="h-10 w-10 mx-auto" color="blue" size="16" />
