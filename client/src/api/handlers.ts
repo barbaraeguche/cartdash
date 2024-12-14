@@ -7,7 +7,7 @@ const fetchGrocery = async (
 	setGroceries: Dispatch<SetStateAction<Grocery[]>>
 ) => {
 	try {
-		const { data } = await apiClient.get('/');
+		const { data } = await apiClient.get('');
 		setGroceries(data.groceries);
 	} catch (err) {
 		console.error(`Error fetching items: ${err}`);

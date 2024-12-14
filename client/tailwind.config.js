@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'luckiest-guy': ['Luckiest Guy', 'cursive'],
+        'luckiest-guy': ['Luckiest Guy', 'serif'],
         'newsreader': ['Newsreader', 'serif']
       },
       colors: {
