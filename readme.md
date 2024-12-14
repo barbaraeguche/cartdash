@@ -1,57 +1,90 @@
 # cartdash 🧺
-
+a simple and responsive grocery **crud** application with smooth animations, and a clean ui.
 
 ## features 👾
-- **title:** description
-- add grocery
-- edit grocery
-- delete grocery
-- pymongo db
-- clean + responsive ui
-- toast notifications
+- **crud functionality:** add, edit, and delete grocery items. 
+- **database integration:** uses pymongo with mongodb atlas for data storage. 
+- **ui/ux:** clean and responsive interface with smooth transitions powered by framer motion. 
+- **notifications:** toast notifications for user actions.
+- **deployment:** frontend hosted on vercel; backend on render.
 
 ## limitations 🚨
-- **title:** description
-- after editing, the ui tweaks places then moves to its original spot
+- **ui bug:** after editing an item, it briefly shifts position before moving back to its original spot.
 
 ## what I learned 💭
-first time using flask and pymongo, learned to use http request file, also using vite
-learned that axios delete does not have data param, so we have to pass the item in the query string inside a `<>`
-you need to return a jsonify for all pi calls else your crud won't work
-edit in-line items
+- **flask & pymongo:** first experience using flask with pymongo to handle crud operations.
+- **http requests:** learned to use axios for http requests & resolved challenges with axios delete, which does not accept a data parameter (used query strings instead).
+- **jsonify responses:** realized all api responses must be jsonified for crud operations to work correctly.
+- **inline editing:** implemented in-line editing for grocery items.
+- **deployment:** successfully deploying this project. the hard part was making mongodb atlas functional, but it was worth the effort.
 
 ## .env file 📄
+### `client/env`
+```dotenv
+# backend configuration
+VITE_BACKEND_URL=
 ```
-hello
-```
+
+### `server/env`
+```dotenv
+# flask configuration
+FLASK_ENV=production  # not in use, kept for reference.
+
+# mongodb atlas configuration
+MONGO_URI=
+USERNAME=  # not in use, kept for reference.
+PASSWORD=  # not in use, kept for reference.
+DATABASE=
+COLLECTION=
+
+# frontend configuration
+FRONTEND_URL=
+``` 
 
 ## running the project 🏁
 to get the project up and running on your local machine, follow these steps:
 
 - **ensure [python](https://www.python.org/downloads/) and [node.js](https://nodejs.org/en) are installed.**
-- **clone the repository:**
+1. **clone the repository:**
 ```bash
 git clone https://github.com/barbaraeguche/cartdash.git
 ```
-- **navigate to the project directory:**
+
+2. **navigate to the project directory:**
 ```bash
 cd cartdash
 ```
-- **install dependencies:**
-```bash
-pnpm install
-```
-- **run the project:**
-```bash
-pnpm run dev
-```
-- **run the project:**
-- activate venv: `source ./venv/bin/activate`
-```bash
-python3 app.py
-```
-- open [http://localhost:5173](http://localhost:5173) with your browser to see the result.
-- open [http://localhost:5000](http://localhost:5000) with your browser to see the result.
+
+3. **run the backend:**
+   1. **navigate to server directory:**
+   ```bash
+   cd server
+   ```
+   2. **install and activate virtual environment:**
+   ```bash
+   python3 -m venv venv
+   source ./venv/bin/activate
+   ```
+   3. **run the flask app:**
+   ```bash
+   python3 app.py
+   ```
+   4. open [http://127.0.0.1:5000](http://127.0.0.1:5000) with your browser.
+
+4. **run the frontend:**
+   1. **navigate to client directory:**
+   ```bash
+   cd client
+   ```
+   2. **install dependencies:**
+   ```bash
+   pnpm install
+   ```
+   3. **start the development server:**
+   ```bash
+   pnpm run dev
+   ```
+   4. open [http://localhost:5173/](http://localhost:5173/) with your browser.
 
 ## gallery 📸
 <details>
