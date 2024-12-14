@@ -37,7 +37,9 @@ export default function GroceryList() {
 				) : (
 					<>
 						{/* show content once fetched */}
-						<h3 className="font-luckiest-guy text-2xl tracking-[7%] text-mint-100">~~~ GROCERY LIST ~~~</h3>
+						<h3 className="font-luckiest-guy text-2xl tracking-[7%] text-mint-100">
+							~~ grocery list ~~
+						</h3>
 						
 						<div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-y-1 gap-x-3 mb-14 sm:mb-20">
 							<AnimatePresence>
