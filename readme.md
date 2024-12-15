@@ -1,4 +1,4 @@
-# cartdash 🧺
+# cartdash 🧺v
 a simple and responsive grocery **crud** application with smooth animations, and a clean ui.
 
 ## features 👾
