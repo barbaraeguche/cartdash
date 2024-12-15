@@ -15,14 +15,12 @@ export default function GroceryList() {
 	setIsLoading(true); // start loading
 	useEffect(() => {
 		const loadGroceries = async () => {
-			try {
-				await fetchGrocery(setGroceries);
-			}
+			await fetchGrocery(setGroceries);
 		};
 		
 		loadGroceries();
 	}, [groceries]);
-	setIsLoading(false); } // stop loading once fetched
+	setIsLoading(false); // stop loading once fetched
 	
 	// useEffect(() => {
 	// 	const loadGroceries = async () => {
