@@ -19,14 +19,16 @@ export default function GroceryList() {
 			
 			try {
 				await fetchGrocery(setGroceries);
-			} finally { 
-				setIsLoading(false); 
-				setLoadingTrigger(1); // stop loading once fetched
+			} finally {
+				if (loadingTrigger === 0) { 
+					setIsLoading(false);
+					setLoadingTrigger(1); // stop loading once fetched
+				}
 			}
 		};
 		
 		loadGroceries();
-	}, [groceries]);
+	}, [loadingTrigger, groceries]);
 	
 	return (
 		<section className="mt-10 sm:mt-16 text-center mx-auto max-w-[450px] md:max-w-[900px]">
