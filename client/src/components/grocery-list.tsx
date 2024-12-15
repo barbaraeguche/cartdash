@@ -11,20 +11,32 @@ export default function GroceryList() {
 	const [groceries, setGroceries] = useState<Grocery[]>([]);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 	const [isEditing, setIsEditing] = useState<string | null>(null);
-	
+
+	setIsLoading(true); // start loading
 	useEffect(() => {
 		const loadGroceries = async () => {
-			setIsLoading(true); // start loading
 			try {
 				await fetchGrocery(setGroceries);
-			} finally { setIsLoading(false); } // stop loading once fetched
+			}
 		};
 		
 		loadGroceries();
-	}, []);
-	useEffect(() => {
-		fetchGrocery(setGroceries);
 	}, [groceries]);
+	setIsLoading(false); } // stop loading once fetched
+	
+	// useEffect(() => {
+	// 	const loadGroceries = async () => {
+	// 		setIsLoading(true); // start loading
+	// 		try {
+	// 			await fetchGrocery(setGroceries);
+	// 		} finally { setIsLoading(false); } // stop loading once fetched
+	// 	};
+		
+	// 	loadGroceries();
+	// }, []);
+	// useEffect(() => {
+	// 	fetchGrocery(setGroceries);
+	// }, [groceries]);
 	
 	return (
 		<section className="mt-10 sm:mt-16 text-center mx-auto max-w-[450px] md:max-w-[900px]">
