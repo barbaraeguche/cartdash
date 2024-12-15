@@ -28,20 +28,6 @@ export default function GroceryList() {
 		loadGroceries();
 	}, [groceries]);
 	
-	// useEffect(() => {
-	// 	const loadGroceries = async () => {
-	// 		setIsLoading(true); // start loading
-	// 		try {
-	// 			await fetchGrocery(setGroceries);
-	// 		} finally { setIsLoading(false); } // stop loading once fetched
-	// 	};
-		
-	// 	loadGroceries();
-	// }, []);
-	// useEffect(() => {
-	// 	fetchGrocery(setGroceries);
-	// }, [groceries]);
-	
 	return (
 		<section className="mt-10 sm:mt-16 text-center mx-auto max-w-[450px] md:max-w-[900px]">
 			{/* show loader while fetching */}
