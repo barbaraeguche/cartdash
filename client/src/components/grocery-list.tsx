@@ -28,6 +28,7 @@ export default function GroceryList() {
 		};
 		
 		loadGroceries();
+		console.log("Effect triggered, groceries:", groceries);
 	}, [loadingTrigger, groceries]);
 	
 	return (
