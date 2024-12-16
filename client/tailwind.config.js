@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'luckiest-guy': ['Henny Penny', 'serif'],
+        'luckiest-guy': ['Luckiest Guy', 'monospace'],
         'newsreader': ['Newsreader', 'serif']
       },
       colors: {
