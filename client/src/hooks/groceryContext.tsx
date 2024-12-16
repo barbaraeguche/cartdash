@@ -19,6 +19,7 @@ export const GroceryProvider: FC<{ children: ReactNode }> = ({ children }) => {
 	);
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useGroceryContext = () => {
 	const context = useContext(GroceryContext);
   if (!context) {

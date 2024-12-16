@@ -39,7 +39,7 @@ export default function GroceryList() {
 				) : (
 					<>
 						{/* show content once fetched */}
-						<h3 className="font-luckiest-guy text-2xl tracking-[7%] text-mint-100">
+						<h3 className="font-luckiest-guy text-[28px] tracking-[7%] text-mint-100">
 							~~ grocery list ~~
 						</h3>
 						
