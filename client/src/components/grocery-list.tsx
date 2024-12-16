@@ -10,26 +10,20 @@ import GroceryCard from './grocery-card.tsx';
 export default function GroceryList() {
 	const [groceries, setGroceries] = useState<Grocery[]>([]);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
-	const [loadingTrigger, setLoadingTrigger] = useState<number>(0);
 	const [isEditing, setIsEditing] = useState<string | null>(null);
 
 	useEffect(() => {
 		const loadGroceries = async () => {
-			if (loadingTrigger === 0) { setIsLoading(true); } // start loading
-			
+			setIsLoading(true); // start loading
 			try {
 				await fetchGrocery(setGroceries);
 			} finally {
-				if (loadingTrigger === 0) { 
-					setIsLoading(false);
-					setLoadingTrigger(1); // stop loading once fetched
-				}
+				setIsLoading(false); // stop loading once fetched
 			}
 		};
 		
 		loadGroceries();
-		console.log("Effect triggered, groceries:", groceries);
-	}, [loadingTrigger]);
+	}, []);
 	
 	return (
 		<section className="mt-10 sm:mt-16 text-center mx-auto max-w-[450px] md:max-w-[900px]">
