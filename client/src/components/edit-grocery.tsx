@@ -39,9 +39,8 @@ export default function EditGrocery({ item, onSave }: {
 						        toast(message, toastConfig);
 						        return;
 					        } else {
-						        triggerReload(); // trigger re-fetching of groceries
 						        onSave(null);
-						        // triggerReload(); // trigger re-fetching of groceries
+						        triggerReload(); // trigger re-fetching of groceries
 					        }
 				        }}
 				>
