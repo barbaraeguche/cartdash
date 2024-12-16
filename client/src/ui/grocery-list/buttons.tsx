@@ -26,12 +26,8 @@ const DeleteButton = ({ item, isPurchased }: {
 	
 	return (
 		<button disabled={isPurchased}
-		        onClick={() => {
-							const removeGrocery = async () => {
-								await deleteGrocery(item);
-							}
-			    
-							removeGrocery();
+		        onClick={async () => {
+			        await deleteGrocery(item);
 			        triggerReload(); // trigger re-fetching of groceries
 		        }}
 		        className="rounded-md p-2 text-red-700 hover:bg-red-100 transition-colors cursor-pointer disabled:text-gray-300 disabled:hover:bg-transparent disabled:cursor-default"
