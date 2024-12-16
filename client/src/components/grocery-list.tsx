@@ -29,7 +29,7 @@ export default function GroceryList() {
 		
 		loadGroceries();
 		console.log("Effect triggered, groceries:", groceries);
-	}, [loadingTrigger, groceries]);
+	}, [loadingTrigger]);
 	
 	return (
 		<section className="mt-10 sm:mt-16 text-center mx-auto max-w-[450px] md:max-w-[900px]">
