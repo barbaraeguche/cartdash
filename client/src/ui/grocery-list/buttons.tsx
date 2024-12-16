@@ -1,5 +1,6 @@
 import { Pencil, Trash2 } from 'lucide-react';
 import { deleteGrocery } from '../../api/handlers.ts';
+import { useGroceryContext } from '../../hooks/groceryContext.tsx';
 
 const EditButton = ({ item, onEdit, isPurchased }: {
 	item: string,
@@ -21,9 +22,14 @@ const DeleteButton = ({ item, isPurchased }: {
 	item: string,
 	isPurchased: boolean
 }) => {
+	const { triggerReload } = useGroceryContext();
+	
 	return (
 		<button disabled={isPurchased}
-		        onClick={() => deleteGrocery(item)}
+		        onClick={() => {
+			        deleteGrocery(item);
+			        triggerReload(); // trigger re-fetching of groceries
+		        }}
 		        className="rounded-md p-2 text-red-700 hover:bg-red-100 transition-colors cursor-pointer disabled:text-gray-300 disabled:hover:bg-transparent disabled:cursor-default"
 		>
 			<span className="sr-only">Delete</span>

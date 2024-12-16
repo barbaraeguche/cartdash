@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { Plus } from 'lucide-react';
 
+import { useGroceryContext } from '../hooks/groceryContext.tsx';
 import { duplicateMsg, toastConfig } from '../util/constants.ts';
 import { addGrocery } from '../api/handlers.ts';
 
@@ -10,6 +11,7 @@ import Button from '../ui/button.tsx';
 
 export default function InputBar() {
 	const [newItem, setNewItem] = useState<string>('');
+	const { triggerReload } = useGroceryContext();
 	
 	return (
 		<section className="mt-14 sm:mt-20 flex gap-1.5 mx-auto max-w-[450px] md:max-w-[600px]">
@@ -35,6 +37,8 @@ export default function InputBar() {
 									setNewItem(newItem); // keep existing item
 									return;
 								}
+								
+								triggerReload(); // trigger re-fetching of groceries
 			        }}
 			>
 				<span className="hidden sm:block">

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { toast } from 'react-hot-toast';
 import { Save, Ban } from 'lucide-react';
 
+import { useGroceryContext } from '../hooks/groceryContext.tsx';
 import { duplicateMsg, toastConfig } from '../util/constants.ts';
 import { updateGrocery } from '../api/handlers.ts';
 import Input from '../ui/input.tsx';
@@ -13,6 +14,7 @@ export default function EditGrocery({ item, onSave }: {
 	onSave: (value: null) => void
 }) {
 	const [value, setValue] = useState<string>(item);
+	const { triggerReload } = useGroceryContext();
 	
 	return (
 		<motion.div initial={{ opacity: 0, scale: 0.7 }}
@@ -33,10 +35,13 @@ export default function EditGrocery({ item, onSave }: {
 				        onClick={async () => {
 					        const message = await updateGrocery(item, value);
 					        
-					        if (message === duplicateMsg) {
-						        toast('No changes made.', toastConfig);
+					        if (message === duplicateMsg || message === 'No changes made.') {
+						        toast(message, toastConfig);
 						        return;
-					        } else onSave(null);
+					        } else {
+						        onSave(null);
+						        triggerReload(); // trigger re-fetching of groceries
+					        }
 				        }}
 				>
 					<span className="sr-only">Update</span>

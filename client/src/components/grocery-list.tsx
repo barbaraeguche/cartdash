@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 
+import { useGroceryContext } from '../hooks/groceryContext.tsx';
 import { fetchGrocery } from '../api/handlers.ts';
 import { Grocery } from '../util/types.ts';
 
@@ -11,10 +12,12 @@ export default function GroceryList() {
 	const [groceries, setGroceries] = useState<Grocery[]>([]);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 	const [isEditing, setIsEditing] = useState<string | null>(null);
+	const { reloadTrigger } = useGroceryContext();
 
 	useEffect(() => {
 		const loadGroceries = async () => {
-			setIsLoading(true); // start loading
+			if (reloadTrigger === 0) setIsLoading(true); // start loading
+			
 			try {
 				await fetchGrocery(setGroceries);
 			} finally {
@@ -23,7 +26,7 @@ export default function GroceryList() {
 		};
 		
 		loadGroceries();
-	}, []);
+	}, [reloadTrigger]);
 	
 	return (
 		<section className="mt-10 sm:mt-16 text-center mx-auto max-w-[450px] md:max-w-[900px]">
