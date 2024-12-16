@@ -91,9 +91,3 @@ cd cartdash
   <summary>showcase</summary>
 
 </details>
-
-## videos 📸
-<details>
-  <summary>showcase</summary>
-
-</details>
