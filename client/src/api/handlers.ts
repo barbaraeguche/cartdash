@@ -18,8 +18,6 @@ const addGrocery = async (
 	newItem: string,
 	setNewItem: Dispatch<SetStateAction<string>>
 ) => {
-	if (!newItem) return;  // if input is an empty string
-
 	try {
 		const { data } = await apiClient.post('/add', {
 			'item': newItem.trim().toLowerCase()
@@ -35,7 +33,7 @@ const updateGrocery = async (
 	former: string,
 	latter: string
 ) => {
-	if (!latter) return;  // if input is an empty string
+	if (latter.trim().toLowerCase() === former.trim().toLowerCase()) return 'No changes made.';
 	
 	try {
 		const { data } = await apiClient.put('/update', {

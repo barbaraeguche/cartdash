@@ -1,3 +1,4 @@
+import { GroceryProvider } from './hooks/groceryContext.tsx';
 import Header from './components/header.tsx';
 import InputBar from './components/input-bar.tsx';
 import GroceryList from './components/grocery-list.tsx';
@@ -8,8 +9,10 @@ export default function App() {
 		<div className="h-screen m-0 p-2.5 box-border font-newsreader flex flex-col">
 			<Header />
 			<main className="flex-1">
-				<InputBar />
-				<GroceryList />
+				<GroceryProvider>
+					<InputBar />
+					<GroceryList />
+				</GroceryProvider>
 			</main>
 			<Footer />
 		</div>
