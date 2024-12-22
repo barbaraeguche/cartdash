@@ -23,7 +23,7 @@ export default function GroceryCard({ grocery, setIsEditing }: {
 				<input type="checkbox"
 				       checked={isPurchased}
 				       onChange={(e) => setIsPurchased(e.target.checked)}
-				       className="accent-beige"
+				       className="accent-mint"
 				/>
 				<span className={clsx(
 					'ml-2 transition-colors',
