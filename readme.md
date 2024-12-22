@@ -8,15 +8,15 @@ a simple and responsive grocery **crud** application with smooth animations, and
 - **notifications:** toast notifications for user actions.
 - **deployment:** frontend hosted on vercel; backend on render.
 
-## limitations 🚨
-- **ui bug:** after editing an item, it briefly shifts position before moving back to its original spot.
-
 ## what I learned 💭
 - **flask & pymongo:** first experience using flask with pymongo to handle crud operations.
 - **http requests:** learned to use axios for http requests & resolved challenges with axios delete, which does not accept a data parameter (used query strings instead).
 - **jsonify responses:** realized all api responses must be jsonified for crud operations to work correctly.
 - **inline editing:** implemented in-line editing for grocery items.
 - **deployment:** successfully deploying this project. the hard part was making mongodb atlas functional, but it was worth the effort.
+
+## limitations 🚨
+- **ui bug:** after editing an item, it briefly shifts position before moving back to its original spot.
 
 ## .env files 📄
 this project requires `.env` files for both the server and client, located in their respective folders.
