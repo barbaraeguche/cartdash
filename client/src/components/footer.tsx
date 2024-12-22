@@ -1,6 +1,6 @@
 export default function Footer() {
 	return (
-		<footer className="text-center flex items-center">
+		<footer className="flex items-center justify-center">
 			<p>
 				&copy; 2024 Cartdash. All Rights Reserved.
 			</p>
