@@ -15,8 +15,7 @@ export default {
           '100': '#72A865E5',
           DEFAULT: '#72A865B2',
           '90': '#b5dda4',
-        },
-        'beige': '#F2F3D9',
+        }
       },
       screens: {
         'small': '380px'
