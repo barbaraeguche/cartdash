@@ -18,28 +18,12 @@ a simple and responsive grocery **crud** application with smooth animations, and
 - **inline editing:** implemented in-line editing for grocery items.
 - **deployment:** successfully deploying this project. the hard part was making mongodb atlas functional, but it was worth the effort.
 
-## .env file 📄
-### `client/env`
-```dotenv
-# backend configuration
-VITE_BACKEND_URL=
-```
+## .env files 📄
+this project requires `.env` files for both the server and client, located in their respective folders.
 
-### `server/env`
-```dotenv
-# flask configuration
-FLASK_ENV=production  # not in use, kept for reference.
+rename the `.env.example` file in each folder to `.env`, and update it with the necessary values.
 
-# mongodb atlas configuration
-MONGO_URI=
-USERNAME=  # not in use, kept for reference.
-PASSWORD=  # not in use, kept for reference.
-DATABASE=
-COLLECTION=
-
-# frontend configuration
-FRONTEND_URL=
-``` 
+ensure these files are configured properly and not committed to version control.
 
 ## running the project 🏁
 to get the project up and running on your local machine, follow these steps:
