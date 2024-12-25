@@ -19,11 +19,7 @@ a simple and responsive grocery **crud** application with smooth animations, and
 - **ui bug:** after editing an item, it briefly shifts position before moving back to its original spot.
 
 ## .env files 📄
-this project requires `.env` files for both the server and client, located in their respective folders.
-
-rename the `.env.example` file in each folder to `.env`, and update it with the necessary values.
-
-ensure these files are configured properly and not committed to version control.
+this project requires `.env` files for both the server and client, located in their respective folders. rename the `.env.example` file in each folder to `.env`, and update it with the necessary values. ensure these files are configured properly and not committed to version control.
 
 ## running the project 🏁
 to get the project up and running on your local machine, follow these steps:
