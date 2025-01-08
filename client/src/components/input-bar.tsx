@@ -44,7 +44,7 @@ export default function InputBar() {
 				<span className="hidden sm:block">
 					Add Item
 				</span>
-				<Plus className="w-5 sm:hidden" />
+				<Plus className="w-5 sm:hidden"/>
 			</Button>
 		</section>
 	);
