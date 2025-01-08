@@ -36,8 +36,8 @@ export default function GroceryCard({ grocery, setIsEditing }: {
 			
 			{/* functionalities */}
 			<div>
-				<EditButton item={grocery.item} onEdit={setIsEditing} isPurchased={isPurchased} />
-				<DeleteButton item={grocery.item} isPurchased={isPurchased} />
+				<EditButton item={grocery.item} onEdit={setIsEditing} isPurchased={isPurchased}/>
+				<DeleteButton item={grocery.item} isPurchased={isPurchased}/>
 			</div>
 		</motion.div>
 	);
