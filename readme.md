@@ -15,9 +15,6 @@ a simple and responsive grocery **crud** application with smooth animations, and
 - **inline editing:** implemented in-line editing for grocery items.
 - **deployment:** successfully deploying this project. the hard part was making mongodb atlas functional, but it was worth the effort.
 
-## limitations 🚨
-- **ui bug:** after editing an item, it briefly shifts position before moving back to its original spot.
-
 ## .env files 📄
 this project requires `.env` files for both the server and client, located in their respective folders. rename the `.env.example` file in each folder to `.env`, and update it with the necessary values. ensure these files are configured properly and not committed to version control.
 
@@ -66,8 +63,9 @@ cd cartdash
    ```
    4. open [http://localhost:5173/](http://localhost:5173/) with your browser.
 
-## gallery 📸
+## preview 📸
 <details>
   <summary>showcase</summary>
-
+  
+  
 </details>
