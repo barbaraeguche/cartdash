@@ -67,5 +67,5 @@ cd cartdash
 <details>
   <summary>showcase</summary>
   
-  
+  https://github.com/user-attachments/assets/84da3568-ee48-498f-b259-8845a9f0fc64
 </details>
