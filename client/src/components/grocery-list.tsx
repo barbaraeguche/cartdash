@@ -45,8 +45,8 @@ export default function GroceryList() {
 						
 						<div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-y-1 gap-x-3 mb-14 sm:mb-20">
 							<AnimatePresence>
-								{groceries.map((grocery) => (
-									<div key={grocery.item}>
+								{groceries.map((grocery, idx) => (
+									<div key={idx}>
 										{isEditing === grocery.item ? (
 											<EditGrocery item={grocery.item} onSave={setIsEditing}/>
 										) : (

@@ -4,7 +4,7 @@ export default function Header() {
 			<h1 className="font-luckiest-guy text-[40px] tracking-[15%] sm:tracking-[30%] md:tracking-[50%] text-mint-100">
 				cartdash
 			</h1>
-			<span className="italic text-[15px] sm:ml-16">
+			<span className="italic text-[15px]">
 				simplifying your grocery shopping experience...
 			</span>
 		</header>
