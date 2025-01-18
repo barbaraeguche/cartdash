@@ -64,8 +64,4 @@ cd cartdash
    4. open [http://localhost:5173/](http://localhost:5173/) with your browser.
 
 ## preview 📸
-<details>
-  <summary>showcase</summary>
-  
-  https://github.com/user-attachments/assets/84da3568-ee48-498f-b259-8845a9f0fc64
-</details>
+https://github.com/user-attachments/assets/e6b21f16-670c-4ca9-abb7-5766512db8f4
