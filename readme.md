@@ -1,6 +1,11 @@
 # cartdash 🧺
 a simple and responsive grocery **crud** application with smooth animations, and a clean ui.
 
+## tech stack ✨
+- **frontend:** built with vite, react, tailwind css, and framer motion.  
+- **backend:** powered by flask with pymongo for database integration.  
+- **deployment:** frontend hosted on vercel; backend deployed on render.  
+
 ## features 👾
 - **crud functionality:** add, edit, and delete grocery items. 
 - **database integration:** uses pymongo with mongodb atlas for data storage. 
